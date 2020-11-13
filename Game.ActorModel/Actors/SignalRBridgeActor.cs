@@ -6,12 +6,12 @@ namespace Game.ActorModel.Actors
 {
     public class SignalRBridgeActor : ReceiveActor // This is used to connect SignalR and the actor system.
     {
+        private readonly IActorRef _gameController; //
         private readonly IGameEventsPusher _gameEventPusher;
-        private readonly IActorRef _gameController;
         public SignalRBridgeActor(IGameEventsPusher gameEventPusher, IActorRef gameController)
         {
-            _gameEventPusher = gameEventPusher;
             _gameController = gameController;
+            _gameEventPusher = gameEventPusher;
 
             Receive<JoinGameMessage>(message =>
             {

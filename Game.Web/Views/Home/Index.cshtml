@@ -39,6 +39,7 @@
 @section scripts {
     <script>
         const gameHub = $.connection.gameHub;
+        console.log(gameHub);
         gameHub.client.playerJoined = function (playerName, health) {
 
             const isMe = playerName === vm.newPlayerName();
